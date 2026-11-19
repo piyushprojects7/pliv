@@ -1,0 +1,243 @@
+/* ==========================================================================
+   PLIV Portfolio Design System — modern, clean, glassmorphic styling
+   ========================================================================== */
+
+:root {
+    --bg-dark: #07090e;
+    --bg-dark-card: rgba(15, 20, 32, 0.75);
+    --bg-dark-surface: #0f1523;
+    --border-color: rgba(255, 255, 255, 0.08);
+    --border-hover: rgba(139, 92, 246, 0.4);
+
+    /* Brand Accent Colors */
+    --brand-indigo: #6366f1;
+    --brand-purple: #8b5cf6;
+    --brand-cyan: #06b6d4;
+    --brand-emerald: #10b981;
+    --brand-pink: #ec4899;
+
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+    background-color: var(--bg-dark);
+    color: #f1f5f9;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: #cbd5e1;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #090c13;
+}
+::-webkit-scrollbar-thumb {
+    background: #252e42;
+    border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #3b4763;
+}
+
+/* Typography Helpers */
+.font-mono {
+    font-family: var(--font-mono);
+}
+
+/* Glassmorphism Cards */
+.glass-card {
+    background: var(--bg-dark-card);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+    box-shadow: 0 25px 50px -12px rgba(99, 102, 241, 0.15);
+}
+
+/* Brand Background & Text Colors */
+.bg-dark {
+    background-color: var(--bg-dark);
+}
+.bg-dark-card {
+    background-color: var(--bg-dark-surface);
+}
+
+.text-brand-indigo { color: var(--brand-indigo); }
+.text-brand-purple { color: var(--brand-purple); }
+.text-brand-cyan { color: var(--brand-cyan); }
+.text-brand-emerald { color: var(--brand-emerald); }
+
+/* Gradients */
+.from-brand-indigo { --tw-gradient-from: var(--brand-indigo); }
+.to-brand-purple { --tw-gradient-to: var(--brand-purple); }
+.to-brand-cyan { --tw-gradient-to: var(--brand-cyan); }
+.to-brand-emerald { --tw-gradient-to: var(--brand-emerald); }
+
+/* Custom Buttons */
+.btn-gradient {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%);
+    background-size: 200% auto;
+    transition: all 0.3s ease;
+}
+
+.btn-gradient:hover {
+    background-position: right center;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4);
+}
+
+.btn-glow {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-glow::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.btn-glow:hover::after {
+    opacity: 1;
+}
+
+/* Badges & Tags */
+.badge-pill {
+    font-size: 0.7rem;
+    font-family: var(--font-mono);
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 9999px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.tech-tag {
+    font-size: 0.72rem;
+    font-family: var(--font-mono);
+    background: rgba(255, 255, 255, 0.04);
+    color: #94a3b8;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 0.25rem 0.65rem;
+    border-radius: 0.6rem;
+    transition: all 0.2s ease;
+}
+
+.tech-tag:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Filter Buttons */
+.filter-btn {
+    background: rgba(255, 255, 255, 0.03);
+    color: #94a3b8;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.filter-btn:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.filter-btn.active {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 4px 15px -3px rgba(99, 102, 241, 0.3);
+}
+
+/* Simulator Tab Buttons */
+.sim-tab-btn {
+    color: #94a3b8;
+}
+
+.sim-tab-btn:hover {
+    color: #fff;
+}
+
+.sim-tab-btn.active {
+    background: #1e2638;
+    color: #38bdf8;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* Header Scroll Effect */
+#main-header.scrolled {
+    background: rgba(7, 9, 14, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    height: 70px;
+}
+
+/* Animations */
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 6s ease infinite;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes scaleUp {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.animate-scale-up {
+    animation: scaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Print simulation paper styling */
+#print-result-box {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Utilities */
+@media (max-width: 768px) {
+    .glass-card {
+        padding: 1.5rem;
+    }
+}
